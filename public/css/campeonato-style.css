@@ -1,0 +1,29 @@
+@font-face {
+    font-family: "richardson";
+    src: url('../fonts/Richardson Brand Accelerator.otf');
+}
+
+h1 {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.titulo {
+    font-family: "richardson";
+}
+
+#ok-nome {
+    display: none;
+}
+
+#erro-nome {
+    display: none;
+}
+
+#ok-ano {
+    display: none;
+}
+
+#erro-ano {
+    display: none;
+}

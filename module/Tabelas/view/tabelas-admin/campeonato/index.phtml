@@ -1,0 +1,35 @@
+<h1 class="text-center bg-primary"><label class="titulo">Lista de Campeonatos</label></h1>
+
+<br />
+
+
+<a href="<?=$this->url('campeonato-admin', array('controller' => 'campeonato', 'action' => 'new'))?>" class="btn btn-primary">New</a>
+
+<br/><br/>
+
+<table class="table table-bordered table-striped table-condensed table-hover">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Nome Campeonato</th>
+            <th>Ano Campeonato</th>
+            <th>Ação</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <?php foreach ($this->data as $campeonato): ?>
+            <tr>
+                <td><?=$campeonato->getId()?></td>
+                <td><?=$campeonato->getNome()?></td>
+                <td><?=$campeonato->getAno()?></td>
+                <td>
+                    <a href="<?=$this->url('campeonato-admin-interna', array('controller' => 'campeonato', 'action' => 'edit', 'id' => $campeonato->getId()))?>" class="btn btn-info">Edit</a>
+                    <a href="<?=$this->url('campeonato-admin-interna', array('controller' => 'campeonato', 'action' => 'delete', 'id' => $campeonato->getId()))?>" class="btn btn-danger">Remove</a>
+                </td>
+            </tr>
+        <?php endforeach; ?>
+    </tbody>
+</table>
+
+<?= $this->paginationControl($this->data, 'Sliding', 'paginator') ?>

@@ -1,0 +1,43 @@
+<h1 class="text-center bg-primary"><label class="titulo">Novo Campeonato</label></h1>
+
+<?php
+
+    $form = $this->form;
+
+    $form->setAttribute('action', $this->url('campeonato-admin', array('controller' => 'campeonato', 'action' => 'new')));
+    $form->setAttribute('class', "form-horizontal");
+
+    $form->prepare();
+
+    echo $this->form()->openTag($form);
+    echo $this->formHidden($form->get('id'));
+?>
+<div class="form-group" id="div_nome">
+    <div class="col-xs-12 col-md-6">
+        <label for="nome">Nome do campeonato</label>
+        <?= $this->formElement($form->get('nome'));?>
+        <?= $this->formElementerrors($form->get('nome'));?>
+        <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true" id="ok-nome"></span>
+        <span class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true" id="erro-nome"></span>
+    </div>
+</div>
+
+<div class="form-group" id="div_ano">
+    <div class="col-xs-12 col-md-2">
+        <label for="ano">Ano do campeonato</label>
+        <?= $this->formElement($form->get('ano')); ?>
+        <?= $this->formElementerrors($form->get('ano'));?>
+        <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true" id="ok-ano"></span>
+        <span class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true" id="erro-ano"></span>
+    </div>
+</div>
+
+<div class="form-group">
+    <div class="col-xs-12 col-md-6">
+        <?= $this->formSubmit($form->get('submit')); ?>
+    </div>
+</div>
+
+<?php
+    echo $this->form()->closeTag();
+?>
